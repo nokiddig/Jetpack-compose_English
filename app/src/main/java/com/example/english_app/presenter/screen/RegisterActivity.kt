@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.example.english_app.presenter.screen
 
 import android.os.Bundle
@@ -8,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -16,7 +19,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +34,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.english_app.R
 import com.example.english_app.ui.theme.English_appTheme
@@ -39,11 +46,27 @@ class RegisterActivity : ComponentActivity() {
 
         setContent {
             English_appTheme {
-                LoginSurface(modifier = Modifier.fillMaxSize())
+                LayoutLogin()
             }
         }
     }
 
+    @Composable
+    fun LayoutLogin() {
+        Scaffold (
+            topBar = {
+                TopAppBar(title = { /*TODO*/Text(text = "") },
+                    modifier = Modifier.fillMaxSize(),
+                    navigationIcon = {
+
+                    }
+                    )
+            },
+            content = {
+                LoginSurface(modifier = Modifier.padding(it))
+            }
+        )
+    }
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun LoginSurface(modifier: Modifier) {
@@ -89,6 +112,33 @@ class RegisterActivity : ComponentActivity() {
                 placeholder = { Text(text = "Input pass...") },
                 visualTransformation = PasswordVisualTransformation()
             )
+            OutlinedTextField(value = password, onValueChange = {
+                password = it
+            }, textStyle = TextStyle(color = Color.Black),
+                modifier = Modifier
+                    .background(color = Color.White, shape = RoundedCornerShape(10.dp))
+                    .width(300.dp),
+                placeholder = { Text(text = "Input pass...") },
+                visualTransformation = PasswordVisualTransformation()
+            )
+            OutlinedTextField(value = password, onValueChange = {
+                password = it
+            }, textStyle = TextStyle(color = Color.Black),
+                modifier = Modifier
+                    .background(color = Color.White, shape = RoundedCornerShape(10.dp))
+                    .width(300.dp),
+                placeholder = { Text(text = "Input pass...") },
+                visualTransformation = PasswordVisualTransformation()
+            )
+            OutlinedTextField(value = password, onValueChange = {
+                password = it
+            }, textStyle = TextStyle(color = Color.Black),
+                modifier = Modifier
+                    .background(color = Color.White, shape = RoundedCornerShape(10.dp))
+                    .width(300.dp),
+                placeholder = { Text(text = "Input pass...") },
+                visualTransformation = PasswordVisualTransformation()
+            )
 
             Button(onClick = { /*TODO*/ }) {
                 Row {
@@ -99,4 +149,23 @@ class RegisterActivity : ComponentActivity() {
         }
     }
 
+    @Composable
+    fun MyOutlinedTextField(
+        value: String,
+        onValueChange: (String) -> Unit,
+        modifier: Modifier = Modifier,
+        placeholder: @Composable (() -> Unit)? = null,
+        visualTransformation: VisualTransformation = VisualTransformation.None
+    ) {
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            textStyle = TextStyle(color = Color.Black),
+            modifier = modifier
+                .background(color = Color.White, shape = RoundedCornerShape(10.dp))
+                .width(300.dp),
+            placeholder = placeholder,
+            visualTransformation = visualTransformation
+        )
+    }
 }

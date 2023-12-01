@@ -2,6 +2,7 @@
 
 package com.example.english_app.presenter.screen
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -96,6 +97,12 @@ class LoginActivity : ComponentActivity() {
                     Text(text = "Submit")
                     Icon(imageVector = Icons.Outlined.KeyboardArrowRight, contentDescription = "")
                 }
+            }
+
+            Button(onClick = {
+                startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+            }) {
+                Text(text = "Register")
             }
         }
     }

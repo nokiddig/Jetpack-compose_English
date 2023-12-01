@@ -31,13 +31,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.example.english_app.domain.constain.RouteConst
 import com.example.english_app.ui.theme.English_appTheme
 
 class MainActivity : ComponentActivity() {
@@ -60,14 +54,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    val navController = rememberNavController()
-    NavHost(navController = navController,  startDestination = RouteConst.HOME){
-        composable(RouteConst.HOME){ Greeting(navController = navController)}
-        composable(RouteConst.HOME){ Greeting(navController = navController)}
-        composable(RouteConst.HOME){ Greeting(navController = navController)}
-        composable(RouteConst.HOME){ Greeting(navController = navController)}
-    }
-    Greeting(navController)
+    //val navController = rememberNavController()
+//    NavHost(navController = navController,  startDestination = RouteConst.HOME){
+//        composable(RouteConst.HOME){ Greeting(navController = navController)}
+//    }
+    Greeting()
 }
 
 
@@ -80,7 +71,7 @@ data class BottomNavItem(
 )
 
 @Composable
-fun Greeting(navController: NavController) {
+fun Greeting() {
     val  items = listOf(
         BottomNavItem(
             title = "Home",
@@ -104,7 +95,7 @@ fun Greeting(navController: NavController) {
             navigationIcon = {
 
                 BackButton{
-                    navController.popBackStack()
+                    //navController.popBackStack()
                 }
             })
         },
@@ -118,7 +109,7 @@ fun Greeting(navController: NavController) {
                         selected = index == selectedIndex,
                         onClick = {
                             selectedIndex = index
-                            navController.navigate(item.title)
+                            //navController.navigate(item.title)
                         },
                         icon = {
                             BadgedBox(badge = {

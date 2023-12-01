@@ -47,13 +47,13 @@ class SplashActivity: ComponentActivity() {
                 animationSpec = tween(1000)
                 )
             delay(1000)
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
         })
         Box(modifier = Modifier
             .fillMaxSize()
             .background(color = Color.White), contentAlignment = Alignment.Center){
             Image(modifier = Modifier.alpha(alpha.value),
-                painter = painterResource(id = R.drawable.logo), contentDescription = "Logo")
+                painter = painterResource(id = R.drawable.logo), contentDescription = "Login")
         }
     }
 }

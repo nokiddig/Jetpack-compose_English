@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.example.english_app.presenter.screen
+package com.example.english_app.presenter.register.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

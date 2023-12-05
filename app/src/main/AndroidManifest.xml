@@ -13,7 +13,7 @@
         android:theme="@style/Theme.English_app"
         tools:targetApi="31">
         <activity
-            android:name=".presenter.screen.SplashActivity"
+            android:name=".presenter.splash.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.English_app">
@@ -24,8 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" android:exported="false" />
-        <activity android:name=".presenter.screen.LoginActivity" android:exported="false" />
-        <activity android:name=".presenter.screen.RegisterActivity" android:exported="false" />
+        <activity android:name=".presenter.login.view.LoginActivity" android:exported="false" />
+        <activity android:name=".presenter.register.view.RegisterActivity" android:exported="false" />
     </application>
 
 </manifest>

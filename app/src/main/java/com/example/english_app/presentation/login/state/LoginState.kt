@@ -1,4 +1,4 @@
-package com.example.english_app.presenter.login.state
+package com.example.english_app.presentation.login.state
 
 import com.google.firebase.firestore.auth.User
 

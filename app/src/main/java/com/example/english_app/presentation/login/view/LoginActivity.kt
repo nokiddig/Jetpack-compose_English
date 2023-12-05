@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
-package com.example.english_app.presenter.login.view
+package com.example.english_app.presentation.login.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -33,12 +33,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.english_app.MainActivity
 import com.example.english_app.R
-import com.example.english_app.presenter.register.view.RegisterActivity
+import com.example.english_app.presentation.login.viewmodel.LoginViewModel
+import com.example.english_app.presentation.register.view.RegisterActivity
 import com.example.english_app.ui.theme.English_appTheme
+import javax.inject.Inject
 
-class LoginActivity : ComponentActivity() {
+class LoginActivity @Inject constructor(val loginViewModel: LoginViewModel): ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -68,6 +69,7 @@ class LoginActivity : ComponentActivity() {
             OutlinedTextField(value = username, onValueChange = {
                 username = it
             }, textStyle = TextStyle(color = Color.Black),
+                label = { Text(text = "Username")},
                 modifier = Modifier
                     .background(color = Color.White, shape = RoundedCornerShape(10.dp))
                     .width(300.dp),
@@ -84,7 +86,8 @@ class LoginActivity : ComponentActivity() {
                 visualTransformation = PasswordVisualTransformation())
 
             Button(onClick = {
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                loginViewModel.login(username, password)
+                //startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             }) {
                 Row {
                     Text(text = "Submit")

@@ -1,4 +1,4 @@
-package com.example.english_app.presenter.splash
+package com.example.english_app.presentation.splash
 
 import android.content.Intent
 import android.os.Bundle
@@ -19,7 +19,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.example.english_app.R
-import com.example.english_app.presenter.login.view.LoginActivity
+import com.example.english_app.presentation.login.view.LoginActivity
 import com.example.english_app.ui.theme.English_appTheme
 import kotlinx.coroutines.delay
 

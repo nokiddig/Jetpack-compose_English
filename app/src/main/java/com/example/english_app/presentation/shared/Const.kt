@@ -1,4 +1,4 @@
-package com.example.english_app.presenter.shared
+package com.example.english_app.presentation.shared
 
 object RouteConst{
     const val HOME = "Home"

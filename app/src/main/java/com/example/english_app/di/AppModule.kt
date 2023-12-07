@@ -13,27 +13,27 @@ import com.google.firebase.auth.FirebaseAuth
 
 @Module
 class AppModule {
-    @Provides
-    fun provideLoginUseCase(): LoginUseCase {
-        return LoginUseCase()
-    }
-    @Provides
-    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
-    @Provides
-    fun provideLoginViewModel(): LoginViewModel {
-
-        return LoginViewModel()
-    }
-
-    @Provides
-    fun provideUserRepository(dataSource: AccountDataSource): AccountRepository {
-        return AccountRepositoryImpl(dataSource)
-    }
-
-    @Provides
-    fun provideLoginActivity(): LoginActivity {
-        return LoginActivity()
-    }
+//    @Provides
+//    fun provideLoginUseCase(): LoginUseCase {
+//        return LoginUseCase()
+//    }
+//    @Provides
+//    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
+//    @Provides
+//    fun provideLoginViewModel(): LoginViewModel {
+//
+//        return LoginViewModel()
+//    }
+//
+//    @Provides
+//    fun provideUserRepository(dataSource: AccountDataSource): AccountRepository {
+//        return AccountRepositoryImpl(dataSource)
+//    }
+//
+//    @Provides
+//    fun provideLoginActivity(): LoginActivity {
+//        return LoginActivity()
+//    }
 
     @Provides
     fun provideLoginViewModel(loginActivity: LoginActivity): LoginViewModel {

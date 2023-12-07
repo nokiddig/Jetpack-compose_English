@@ -65,6 +65,7 @@ dependencies {
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.5")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.google.android.datatransport:transport-runtime:3.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -86,4 +87,5 @@ dependencies {
     // https://firebase.google.com/docs/android/setup#available-libraries
 
     implementation("com.google.firebase:firebase-auth")
+    implementation ("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 }

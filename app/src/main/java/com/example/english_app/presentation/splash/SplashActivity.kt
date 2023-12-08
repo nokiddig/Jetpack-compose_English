@@ -18,24 +18,18 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.times
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.ConstraintSet
 import com.example.english_app.R
 import com.example.english_app.presentation.login.view.LoginActivity
 import com.example.english_app.ui.theme.English_appTheme
 import kotlinx.coroutines.delay
-
-//@SuppressLint("CustomSplashScreen")
 class SplashActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,19 +39,17 @@ class SplashActivity : ComponentActivity() {
                 SplashScreen()
             }
         }
-
     }
 
     @Composable
     fun SplashScreen() {
         val alpha = remember {
             Animatable(0f)
-
         }
         LaunchedEffect(key1 = true, block = {
             alpha.animateTo(
                 1f,
-                animationSpec = tween(10000)
+                animationSpec = tween(2000)
             )
             delay(1000)
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
@@ -133,13 +125,6 @@ class SplashActivity : ComponentActivity() {
                         bottom.linkTo(parent.bottom)
                         end.linkTo(parent.end)
                     })
-
         }
-    }
-
-    @Preview(showBackground = true, showSystemUi = true)
-    @Composable
-    fun SplashPrev() {
-        SplashScreen()
     }
 }
